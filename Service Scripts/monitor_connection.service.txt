@@ -1,0 +1,14 @@
+[Unit]
+Description=Monitor Connections Between PI zero and PI 3
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/underdac-pi3/monitor_connection.py
+WorkingDirectory=/home/underdac-pi3
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=underdac-pi3
+
+[Install]
+WantedBy=multi-user.target

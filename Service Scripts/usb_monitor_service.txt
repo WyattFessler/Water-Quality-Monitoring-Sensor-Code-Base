@@ -1,0 +1,12 @@
+[Unit]
+Description=USB Mount Monitor #describe the service
+After=network.target #controls ordering. Initialize after the network is reached
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/usb_monitor.py #starts the USB monitor script
+Restart=on-failure #describes actions. In this case, continuously attempt to start USB_monitor if it fails
+User=pi #run under user "pi"
+Group=pi
+
+[Install]
+WantedBy=multi-user.target #specifies that this script should run under any user that logs into the pi
